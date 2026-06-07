@@ -1,5 +1,4 @@
 import "react";
-
 const Hero = () => (
     <section data-reveal id="beranda" class="hero-bg relative min-h-screen overflow-hidden pt-10 text-white">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_110%,rgba(215,164,65,0.22),transparent_34%)]">

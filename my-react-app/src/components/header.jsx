@@ -1,6 +1,4 @@
 import "react";
-
-
 const Header = () => (
     <header class="fixed inset-x-20 top-2 z-50 rounded-full border-transparent glass-nav">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
