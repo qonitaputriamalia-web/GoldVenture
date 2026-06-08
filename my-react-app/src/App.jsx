@@ -5,12 +5,12 @@ import WhyUs from "./components/why_us";
 
 function App() {
   return (
-    <div>
+    <section>
       <Header />
       <Hero />
-      <WhyUs/>
+      <WhyUs /> 
+    </section>
 
-    </div>
   )
 }
 
