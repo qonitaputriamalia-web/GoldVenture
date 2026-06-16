@@ -1,5 +1,5 @@
 import "react";
-const Header = () => (
+const Header = ({ onLoginOpen, onRegisterOpen }) => (
     <header class="fixed inset-x-20 top-2 z-50 rounded-full border-transparent glass-nav">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
             <a href="#" class="group flex items-center gap-3 -translate-x-10" aria-label="GoldVenture Home">
@@ -34,10 +34,14 @@ const Header = () => (
             </div>
 
             <div class="hidden items-center gap-3 md:flex">
-                <button data-action="Login"
-                    class="action-btn rounded-full px-4 py-2.5 text-sm font-bold text-forest transition hover:bg-white">Login</button>
-                <button data-action="Register"
-                    class="action-btn rounded-full bg-gold px-5 py-2.5 text-sm font-black text-forest shadow-lg shadow-gold/25 transition hover:-translate-y-0.5 hover:bg-[#e2b454]">Register</button>
+                <button onClick={onLoginOpen}
+                    className="action-btn rounded-full px-4 py-2.5 text-sm font-bold text-forest transition hover:bg-white"
+                >
+                    Login</button>
+                <button onClick={onRegisterOpen}
+                    className="action-btn rounded-full bg-gold px-5 py-2.5 text-sm font-black text-forest shadow-lg shadow-gold/25 transition hover:-translate-y-0.5 hover:bg-[#e2b454]"
+                >
+                    Register</button>
             </div>
 
             <button id="menuToggle"
