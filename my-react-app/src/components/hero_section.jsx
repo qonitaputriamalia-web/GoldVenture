@@ -12,15 +12,13 @@ const Hero = () => (
             class="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-28 pt-20 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pt-28">
             <div>
                 <h1
-                    class="max-w-4xl text-5xl font-black leading-[0.94] tracking-[-0.06em] text-white md:text-7xl lg:text-[6.4rem]">
-                    Sewa alat hiking <span
-                        class="bg-gradient-to-r from-gold via-[#ffe3a0] to-white bg-clip-text text-transparent">tanpa
-                        ribet</span>, siap ambil hari ini.
+                    class=" font-poppins max-w-4xl text-5xl font-black leading-[0.94] -translate-y-16 tracking-[-0.05em] text-white md:text-7xl lg:text-[6.4rem]">
+                    Sewa Alat Hiking <span
+                        class="bg-gradient-to-r from-gold via-[#ffe3a0] to-white bg-clip-text text-transparent">Tanpa
+                        Ribet</span>
                 </h1>
-                <p class="mt-7 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">
-                    Cari gear, pilih tanggal, ambil di basecamp/store terdekat. Semua alat dicek, dibersihkan, dan siap
-                    dipakai
-                    sebelum trip.
+                <p class="font-poppins font-medium italic mt-5 max-w-2xl text-lg leading-8 text-white/78 md:text-xl -translate-y-7">
+                    Booking online, ambil hari ini, langsung berangkat
                 </p>
 
                 <div class="mt-9 flex flex-col gap-4 sm:flex-row">

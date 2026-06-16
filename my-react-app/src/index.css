@@ -1,88 +1,147 @@
 @import "tailwindcss";
 
- @theme {
-      --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
-      --color-forest: #0b2f21;
-      --color-forest-2: #123f2b;
-      --color-moss: #1f6a43;
-      --color-gold: #d7a441;
-      --color-cream: #f7f5ed;
-      --shadow-premium: 0 18px 48px rgba(9, 33, 24, 0.12);
-    }
-    .logo-text {
-      font-family: 'Cinzel', serif;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --color-forest: #0b2f21;
+  --color-forest-2: #123f2b;
+  --color-moss: #1f6a43;
+  --color-gold: #d7a441;
+  --color-cream: #f7f5ed;
+  --shadow-premium: 0 18px 48px rgba(9, 33, 24, 0.12);
+}
 
-    .glass-nav {
-      background: transparent;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      animation: navbarBg linear both;
-      animation-timeline: scroll();
-      animation-range: 0 140px;
-    }
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 
-    @keyframes navbarBg {
-      to {
-        background: linear-gradient(90deg, rgba(215, 164, 65, 0.85), rgba(224, 179, 80, 0.92));
-        border-color: rgba(255, 255, 255, 0.35);
-        box-shadow: 0 16px 45px rgba(9, 33, 24, 0.14);
-        backdrop-filter: blur(28px) saturate(260%);
-        -webkit-backdrop-filter: blur(18px) saturate(260%);
-      }
-    }
+.glass-nav {
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  animation: navbarBg linear both;
+  animation-timeline: scroll();
+  animation-range: 0 140px;
+}
 
-    #logoText {
-      background: linear-gradient(90deg, #6f8f4e 0%, #ffffff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: logoTextColor linear both;
-      animation-timeline: scroll();
-      animation-range: 0 140px;
-    }
+@keyframes navbarBg {
+  to {
+    background: linear-gradient(90deg, rgba(215, 164, 65, 0.85), rgba(224, 179, 80, 0.92));
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 16px 45px rgba(9, 33, 24, 0.14);
+    backdrop-filter: blur(28px) saturate(260%);
+    -webkit-backdrop-filter: blur(18px) saturate(260%);
+  }
+}
 
-    #logoSubText {
-      color: rgba(255, 255, 255, 0.78);
-      animation: logoSubTextColor linear both;
-      animation-timeline: scroll();
-      animation-range: 0 140px;
-    }
+#logoText {
+  background: linear-gradient(90deg, #6f8f4e 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: logoTextColor linear both;
+  animation-timeline: scroll();
+  animation-range: 0 140px;
+}
 
-    @keyframes logoTextColor { to { background: none; -webkit-background-clip: initial; background-clip: initial; color: #0b2f21; } }
-    @keyframes logoSubTextColor { to { color: #64748b; } }
+#logoSubText {
+  color: rgba(255, 255, 255, 0.78);
+  animation: logoSubTextColor linear both;
+  animation-timeline: scroll();
+  animation-range: 0 140px;
+}
 
-    .hero-bg {
-      background-image:
-        radial-gradient(circle at 18% 22%, rgba(215, 164, 65, 0.28), transparent 23%),
-        radial-gradient(circle at 76% 14%, rgba(255, 255, 255, 0.16), transparent 18%),
-        linear-gradient(90deg, rgba(3, 18, 13, 0.96) 0%, rgba(6, 36, 24, 0.88) 40%, rgba(8, 38, 26, 0.44) 73%, rgba(8, 38, 26, 0.12) 100%),
-        url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=92');
-      background-size: cover;
-      background-position: center;
-    }
+@keyframes logoTextColor {
+  to {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: #0b2f21;
+  }
+}
 
-    .soft-grid {
-      background-image:
-        linear-gradient(rgba(11, 47, 33, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(11, 47, 33, 0.035) 1px, transparent 1px);
-      background-size: 38px 38px;
-    }
+@keyframes logoSubTextColor {
+  to {
+    color: #64748b;
+  }
+}
 
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .mobile-panel { max-height: 0; opacity: 0; overflow: hidden; }
-    .search-shell { box-shadow: 0 26px 70px rgba(9, 33, 24, 0.13), 0 1px 0 rgba(255, 255, 255, 0.9) inset; }
-    .search-control { position: relative; }
-    .search-trigger, .search-field { min-height: 78px; }
-    .dropdown-panel { display: none; }
-    .hero-carousel-track { display: flex; }
-    .hero-slide { flex: 0 0 100%; }
-    .hero-slide img { transform: scale(1.02); }
-    .carousel-dot.is-active { width: 1.7rem; background: #d7a441; }
-    input[type="date"] { color-scheme: light; }
-    .icon-shadcn { display: inline-block; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.hero-bg {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(215, 164, 65, 0.28), transparent 23%),
+    radial-gradient(circle at 76% 14%, rgba(255, 255, 255, 0.16), transparent 18%),
+    linear-gradient(90deg, rgba(3, 18, 13, 0.96) 0%, rgba(6, 36, 24, 0.88) 40%, rgba(8, 38, 26, 0.44) 73%, rgba(8, 38, 26, 0.12) 100%),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=92');
+  background-size: cover;
+  background-position: center;
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(11, 47, 33, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 47, 33, 0.035) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mobile-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.search-shell {
+  box-shadow: 0 26px 70px rgba(9, 33, 24, 0.13), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.search-control {
+  position: relative;
+}
+
+.search-trigger,
+.search-field {
+  min-height: 78px;
+}
+
+.dropdown-panel {
+  display: none;
+}
+
+.hero-carousel-track {
+  display: flex;
+}
+
+.hero-slide {
+  flex: 0 0 100%;
+}
+
+.hero-slide img {
+  transform: scale(1.02);
+}
+
+.carousel-dot.is-active {
+  width: 1.7rem;
+  background: #d7a441;
+}
+
+input[type="date"] {
+  color-scheme: light;
+}
+
+.icon-shadcn {
+  display: inline-block;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
