@@ -1,17 +1,19 @@
-// import { useState } from 'react'
+import "./App.css";
+
 import Header from "./components/header";
 import Hero from "./components/hero_section";
 import WhyUs from "./components/why_us";
+import TripPlanner from "./components/tripplanner";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Hero />
-      <WhyUs/>
-
-    </div>
-  )
+      <WhyUs />
+      <TripPlanner />
+    </>
+  );
 }
 
-export default App
+export default App;
