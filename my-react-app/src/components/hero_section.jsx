@@ -23,7 +23,7 @@ const Hero = () => (
                     sebelum trip.
                 </p>
 
-                <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+                    <div class="mt-9 flex flex-col gap-4 sm:flex-row">
                     <a href="#search"
                         class="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-4 font-black text-forest shadow-2xl shadow-gold/25 transition hover:-translate-y-1 hover:bg-[#e7b858]">
                         Cek gear tersedia <svg
