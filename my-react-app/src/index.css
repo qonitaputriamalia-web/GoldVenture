@@ -72,9 +72,13 @@
 
 .hero-bg {
   background-image:
-    radial-gradient(circle at 18% 22%, rgba(215, 164, 65, 0.28), transparent 23%),
-    radial-gradient(circle at 76% 14%, rgba(255, 255, 255, 0.16), transparent 18%),
-    linear-gradient(90deg, rgba(3, 18, 13, 0.96) 0%, rgba(6, 36, 24, 0.88) 40%, rgba(8, 38, 26, 0.44) 73%, rgba(8, 38, 26, 0.12) 100%),
+    radial-gradient(circle at 98% 32%, rgba(215, 164, 65, 0.28), transparent 23%),
+    radial-gradient(circle at 96% 34%, rgba(255, 255, 255, 0.16), transparent 18%),
+    linear-gradient(90deg,
+      rgba(3, 18, 13, 0.55) 0%,
+      rgba(6, 36, 24, 0.45) 40%,
+      rgba(8, 38, 26, 0.44) 73%,
+      rgba(8, 38, 26, 0.12) 100%),
     url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=92');
   background-size: cover;
   background-position: center;
