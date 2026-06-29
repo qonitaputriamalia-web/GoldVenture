@@ -1,6 +1,6 @@
 import "react";
 const Header = () => (
-    <header class="fixed md:    inset-x-35 top-2 z-50 rounded-full border-transparent glass-nav">
+    <header class="fixed inset-x-20 top-2 z-50 rounded-full border-transparent glass-nav">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
             <a href="#" class="group flex items-center gap-3 -translate-x-10" aria-label="GoldVenture Home">
                 <div
@@ -15,7 +15,8 @@ const Header = () => (
             </a>
 
             <div id="desktopMenu"
-                class="hidden -translate-x-12 items-center rounded-full border border-slate-200 bg-white/70 p-1 shadow-sm lg:flex">
+                class="hidden -translate-x-4 items-center gap-1 rounded-full border border-slate-200 bg-white/70 p-1 shadow-sm lg:flex">
+
                 <a href="#alat"
                     class="nav-link rounded-full px-4 py-2 text-sm font-semibold whitespace-nowrap text-slate-600 transition hover:bg-slate-100 hover:text-forest">Alat</a>
                 <a href="#paket"
@@ -31,7 +32,7 @@ const Header = () => (
                     Kami</a>
             </div>
 
-            <div class="hidden items-center md:flex -translate-x-10">
+            <div class="hidden items-center gap-3 md:flex">
                 <button data-action="Login"
                     class="action-btn rounded-full px-4 py-2.5 text-sm font-bold text-forest transition hover:bg-white">Login</button>
                 <button data-action="Register"
