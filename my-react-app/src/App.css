@@ -1,0 +1,250 @@
+/* ============================= */
+/* HOW TO RENTAL */
+/* ============================= */
+
+.howToRental{
+    width:100%;
+    background:#fbfaf6;
+    padding:110px 30px;
+}
+
+.howToRental-container{
+    width:min(1280px,95%);
+    margin:auto;
+}
+
+.howToRental-title{
+    text-align:center;
+}
+
+.section-subtitle{
+
+    color:#D6A64B;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+.section-title{
+
+    font-size:52px;
+
+    color:#12372B;
+
+    margin-top:18px;
+
+    font-weight:900;
+}
+
+.section-desc{
+
+    width:650px;
+
+    max-width:100%;
+
+    margin:22px auto;
+
+    color:#6c7782;
+
+    line-height:1.8;
+
+    font-size:18px;
+}
+
+.steps-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+    margin-top:70px;
+}
+
+.step-card{
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:35px;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+}
+
+.step-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 22px 45px rgba(0,0,0,.15);
+}
+
+.step-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.step-number{
+
+    width:64px;
+
+    height:64px;
+
+    background:#12372B;
+
+    color:white;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    font-weight:900;
+}
+
+.step-icon{
+
+    font-size:34px;
+}
+
+.step-title{
+
+    margin-top:28px;
+
+    font-size:27px;
+
+    color:#12372B;
+
+    font-weight:800;
+}
+
+.step-desc{
+
+    margin-top:15px;
+
+    color:#70757d;
+
+    line-height:1.8;
+}
+
+.cta-rental{
+
+    margin-top:80px;
+
+    background:linear-gradient(135deg,#12372B,#1b5a44);
+
+    border-radius:32px;
+
+    text-align:center;
+
+    padding:70px;
+
+    color:white;
+}
+
+.cta-rental h3{
+
+    font-size:42px;
+
+    font-weight:900;
+}
+
+.cta-rental p{
+
+    width:650px;
+
+    max-width:100%;
+
+    margin:20px auto;
+
+    color:rgba(255,255,255,.82);
+
+    line-height:1.8;
+}
+
+.cta-button{
+
+    margin-top:28px;
+
+    border:none;
+
+    background:#D6A64B;
+
+    color:#12372B;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    padding:18px 42px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.cta-button:hover{
+
+    transform:translateY(-5px);
+
+    background:#e6b85c;
+}
+
+@media(max-width:1000px){
+
+.steps-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:700px){
+
+.steps-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.section-title{
+
+font-size:38px;
+
+}
+
+.cta-rental{
+
+padding:40px 25px;
+
+}
+
+.cta-rental h3{
+
+font-size:30px;
+
+}
+
+}
