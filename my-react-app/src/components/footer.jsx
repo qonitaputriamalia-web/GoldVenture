@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 
 export default function FooterSection() {
   return (
@@ -104,7 +104,7 @@ export default function FooterSection() {
                 {/* SVG Sederhana untuk Icon (Bisa diganti react-icons nanti) */}
                 <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-[#d4af37]/50 hover:bg-[#d4af37]/10 transition-all duration-300">
                   <span className="text-[10px] uppercase">{social.charAt(0)}</span>
-                </div>
+                </div>  
               </a>
             ))}
           </div>
