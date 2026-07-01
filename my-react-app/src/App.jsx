@@ -1,7 +1,7 @@
-// import { useState } from 'react'
 import Header from "./components/header";
 import Hero from "./components/hero_section";
 import WhyUs from "./components/why_us";
+import HowToRental from "./components/howToRental";
 
 
 function App() {
@@ -9,10 +9,10 @@ function App() {
     <section>
       <Header />
       <Hero />
-      <WhyUs /> 
+      <WhyUs />
+      <HowToRental />
     </section>
-
-  )
+  );
 }
 
-export default App
+export default App;
