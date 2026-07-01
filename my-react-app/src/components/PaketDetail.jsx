@@ -19,7 +19,7 @@ export default function PaketDetail() {
       setPaket(found || null)
       setJumlahHari(1)
       setLoading(false)
-    }, 260)
+    }, 250)
     return () => clearTimeout(timer)
   }, [id])
 
