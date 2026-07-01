@@ -1,19 +1,45 @@
-// import { useState } from 'react'
+import { Routes, Route } from "react-router-dom";
+
 import Header from "./components/header";
 import Hero from "./components/hero_section";
 import WhyUs from "./components/why_us";
-import PremiumPackage from './components/Package';
+import PaketPendakian from "./components/PaketPendakian";
+import PaketDetail from "./components/PaketDetail";
 
-function App() {
+function Home() {
   return (
-    <div>
+    <>
       <Header />
       <Hero />
-      <WhyUs/>
-      <PremiumPackage />
-
-    </div>
-  )
+      <WhyUs />
+    </>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+
+      <Route
+        path="/paket"
+        element={
+          <>
+            <Header />
+            <PaketPendakian />
+          </>
+        }
+      />
+
+      <Route
+        path="/paket/:id"
+        element={
+          <>
+            <Header />
+            <PaketDetail />
+          </>
+        }
+      />
+    </Routes>
+  );
+}
