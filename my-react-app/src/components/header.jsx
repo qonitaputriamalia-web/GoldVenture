@@ -1,15 +1,11 @@
-import React from "react";
-
-// Kita tambahkan prop isLoggedIn. 
-// Defaultnya false (belum login), jadi waktu pertama buka cuma ada Logo & Login/Register.
-const Header = ({ isLoggedIn = false }) => (
-    <header className="fixed inset-x-20 top-2 z-50 rounded-full border-transparent glass-nav">
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-            
-            {/* --- LOGO: Selalu Muncul --- */}
-            <a href="#" className="group flex items-center gap-3 -translate-x-10" aria-label="GoldVenture Home">
-                <div className="grid size-35 place-items-center rounded-2xl transition group-hover:scale-105 translate-x-7 -translate-y-1">
-                    <img src="src/assets/logo-GoldVenture.png" alt="GoldVenture Logo" />
+import "react";
+const Header = ({ onLoginOpen, onRegisterOpen }) => (
+    <header class="fixed inset-x-20 top-2 z-50 rounded-full border-transparent glass-nav">
+        <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+            <a href="#" class="group flex items-center gap-3 -translate-x-10" aria-label="GoldVenture Home">
+                <div
+                    class="grid size-35 place-items-center rounded-2xl transition group-hover:scale-105 translate-x-7 -translate-y-1">
+                    <img src="src/assets/logo-GoldVenture.png" alt="" />
                 </div>
                 <div>
                     <p id="logoText" className="text-xl font-black tracking-tight logo-text">GoldVenture</p>
@@ -43,16 +39,28 @@ const Header = ({ isLoggedIn = false }) => (
                 )}
             </div>
 
-            {/* --- MOBILE MENU TOGGLE: Disembunyikan kalau belum login (karena menunya kosong) --- */}
-            {isLoggedIn && (
-                <button id="menuToggle" className="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-forest transition hover:bg-cream lg:hidden" aria-label="Buka menu" aria-expanded="false">
-                    <svg className="size-5 inline-flex items-center justify-center leading-none icon-shadcn" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4 6h16" />
-                        <path d="M4 12h16" />
-                        <path d="M4 18h16" />
-                    </svg>
-                </button>
-            )}
+            <div class="hidden items-center gap-3 md:flex">
+                <button onClick={onLoginOpen}
+                    className="action-btn rounded-full px-4 py-2.5 text-sm font-bold text-forest transition hover:bg-white"
+                >
+                    Login</button>
+                <button onClick={onRegisterOpen}
+                    className="action-btn rounded-full bg-gold px-5 py-2.5 text-sm font-black text-forest shadow-lg shadow-gold/25 transition hover:-translate-y-0.5 hover:bg-[#e2b454]"
+                >
+                    Register</button>
+            </div>
+
+            <button id="menuToggle"
+                class="grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-forest transition hover:bg-cream lg:hidden"
+                aria-label="Buka menu" aria-expanded="false">
+                <svg class="size-5 inline-flex items-center justify-center leading-none icon-shadcn" aria-hidden="true"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
         </nav>
 
         {/* --- MOBILE MENU PANEL: Cuma di-render kalau sudah login --- */}
