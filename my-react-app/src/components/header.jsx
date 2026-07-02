@@ -35,7 +35,7 @@ const Header = () => {
                     </div>
                 </Link>
 
-                {/* Desktop Menu */}
+                {/* Dekstop Menu */}
 
                 <div
                     id="desktopMenu"

@@ -12,6 +12,7 @@ export default function PaketPendakian() {
   const [paketList, setPaketList] = useState([])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true)
     const timer = setTimeout(() => {
       setPaketList(PAKET_LIST)

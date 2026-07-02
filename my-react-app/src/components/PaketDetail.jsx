@@ -13,6 +13,7 @@ export default function PaketDetail() {
   const [jumlahHari, setJumlahHari] = useState(1)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true)
     const timer = setTimeout(() => {
       const found = PAKET_LIST.find((p) => p.id === Number(id))
