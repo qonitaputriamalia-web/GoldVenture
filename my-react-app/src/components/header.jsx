@@ -19,12 +19,9 @@ const Header = ({ onLoginOpen, onRegisterOpen, isLoggedIn = false }) => {
                     </div>
 
                     <div>
-                        <p className="text-xl font-black tracking-tight logo-text">
-                            GoldVenture
-                        </p>
-                        <p className="-mt-1 text-[11px] font-semibold uppercase tracking-[0.24em]">
-                            Outdoor Rental
-                        </p>
+                        <p id="logoText" class="text-xl font-black tracking-tight logo-text">GoldVenture</p>
+                        <p id="logoSubText" class="-mt-1 text-[11px] font-semibold uppercase tracking-[0.24em]">Outdoor
+                            Rental</p>
                     </div>
                 </a>
 
