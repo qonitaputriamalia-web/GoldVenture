@@ -1,7 +1,13 @@
 import 'react';
 import logo from "../assets/logo-GoldVent.png";
+import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 
 export default function FooterSection() {
+  const socialMedias = [
+    { name: 'Instagram', icon: <FaInstagram />, link: '#' },
+    { name: 'Twitter', icon: <FaTwitter />, link: '#' },
+    { name: 'Facebook', icon: <FaFacebookF />, link: '#' },
+  ];
   return (
     <footer className="bg-[#131710] text-[#f4f6f0] pt-16 pb-8 px-6 md:px-16 lg:px-24 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
@@ -99,16 +105,16 @@ export default function FooterSection() {
 
           {/* Social Media Icons */}
           <div className="flex items-center gap-4">
-            {['Instagram', 'Twitter', 'Facebook'].map((social) => (
+            {socialMedias.map((social) => (
               <a
-                key={social}
-                href="#"
-                aria-label={social}
+                key={social.name}
+                href={social.link}
+                aria-label={social.name}
                 className="text-[#a3b19b] hover:text-[#d4af37] transition-colors duration-300"
               >
-                {/* SVG Sederhana untuk Icon (Bisa diganti react-icons nanti) */}
-                <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-[#d4af37]/50 hover:bg-[#d4af37]/10 transition-all duration-300">
-                  <span className="text-[10px] uppercase">{social.charAt(0)}</span>
+                <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-[#d4af37]/50 hover:bg-[#d4af37]/10 transition-all duration-300 text-sm">
+                  {/* 3. Render icon dari object di sini */}
+                  {social.icon}
                 </div>
               </a>
             ))}
