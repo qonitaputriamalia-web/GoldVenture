@@ -9,12 +9,10 @@ import LoginModal from "./components/login";
 
 function App() {
   const [loginOpen, setLoginOpen] = useState(false);
-  // const [registerOpen, setRegisterOpen] = useState(false);
   return (
     <section>
       <Header
         onLoginOpen={() => setLoginOpen(true)}
-        // onRegisterOpen={() => setRegisterOpen(true)}
       />
       <LoginModal
         isOpen={loginOpen}
