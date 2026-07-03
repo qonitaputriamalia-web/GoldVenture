@@ -1,6 +1,6 @@
 import logo from "../assets/logo-GoldVenture.png";
 
-const Header = ({ onLoginOpen, onRegisterOpen, isLoggedIn = false }) => {
+const Header = ({ onLoginOpen, onRegisterOpen, onLogout, isLoggedIn = false }) => {
     return (
         <header className="fixed inset-x-20 top-2 z-50 rounded-full border-transparent glass-nav">
             <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -79,7 +79,7 @@ const Header = ({ onLoginOpen, onRegisterOpen, isLoggedIn = false }) => {
                         </>
                     ) : (
                         <button
-                            onClick={() => console.log("Fungsi logout dipanggil")}
+                            onClick={onLogout}
                             className="rounded-full px-4 py-2.5 text-sm font-bold text-red-500 transition hover:bg-red-50"
                         >
                             Logout

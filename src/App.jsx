@@ -1,42 +1,58 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-import Header from "./components/header";
-import Hero from "./components/hero_section";
-import WhyUs from "./components/why_us";
-import HowToRental from "./components/howToRental";
-import FooterSection from "./components/footer";
-import LoginModal from "./components/login";
+// Layouts & Pages
+import MainLayout from "./layouts/MainLayout";
+import LandingPage from "./pages/LandingPage";
+import Beranda from "./pages/Beranda";
+import Alat from "./pages/Alat";
+import Paket from "./pages/Paket";
+import CaraSewa from "./pages/CaraSewa";
+import TripPlanner from "./pages/TripPlanner";
+import TentangKami from "./pages/TentangKami";
+import KondisiAlat from "./pages/KondisiAlat";
 
 function App() {
-  const [loginOpen, setLoginOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
+  // Cek sesi login saat web di-refresh
   useEffect(() => {
-    AOS.init({
-      duration: 800, // Durasi animasi (800ms = transisi lembut/elegan)
-      once: true,    // Animasi cuma jalan sekali pas di-scroll ke bawah (nggak ngulang-ngulang)
-      easing: "ease-out-cubic", // Efek pergerakan yang mulus banget
-      offset: 100,   // Jarak scroll sebelum animasi mulai
-    });
+    const saved = localStorage.getItem("goldventure_user");
+    if (saved) setUser(JSON.parse(saved));
   }, []);
 
   return (
-    <section className="overflow-hidden">
+    <Router>
+      <Routes>
+        {/* Route Public / Landing Page */}
+        <Route 
+          path="/" 
+          element={
+            !user ? (
+              <LandingPage setUser={setUser} />
+            ) : (
+              <Navigate to="/beranda" replace />
+            )
+          } 
+        />
 
-      <Header onLoginOpen={() => setLoginOpen(true)} />
-
-      <LoginModal
-        isOpen={loginOpen}
-        onClose={() => setLoginOpen(false)}
-      />
-
-      {/* Komponen-komponen di bawah ini nanti tinggal lu kasih atribut data-aos */}
-      <Hero />
-      <WhyUs />
-      <HowToRental />
-      <FooterSection />
-    </section>
+        {/* Route Private (Harus Login) */}
+        {user ? (
+          <Route element={<MainLayout user={user} setUser={setUser} />}>
+            <Route path="/beranda" element={<Beranda />} />
+            <Route path="/alat" element={<Alat />} />
+            <Route path="/paket" element={<Paket />} />
+            <Route path="/cara-sewa" element={<CaraSewa />} />
+            <Route path="/trip-planner" element={<TripPlanner />} />
+            <Route path="/tentang-kami" element={<TentangKami />} />
+            <Route path="/kondisi-alat" element={<KondisiAlat />} />
+          </Route>
+        ) : (
+          // Kalau maksa ngetik URL tapi belum login, tendang ke Landing
+          <Route path="*" element={<Navigate to="/" replace />} />
+        )}
+      </Routes>
+    </Router>
   );
 }
 

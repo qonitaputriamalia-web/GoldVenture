@@ -1,4 +1,4 @@
-function HowToRental() {
+function HowToRental({ onLoginOpen }) {
   const steps = [
     {
       number: "01",
@@ -68,10 +68,10 @@ function HowToRental() {
                 <img
                   src={step.image}
                   alt={step.title}
-                  loading="lazy" 
+                  loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                
+
                 {/* Badge Nomor */}
                 <div className="absolute top-4 left-4 rounded-2xl bg-forest px-4 py-2 text-lg font-black text-white shadow-md">
                   {step.number}
@@ -102,7 +102,7 @@ function HowToRental() {
           </p>
 
           <button
-            onClick={() => alert("Fitur booking akan segera tersedia")}
+            onClick={onLoginOpen}
             className="mt-6 rounded-full bg-gold px-8 py-4 font-black text-forest transition hover:-translate-y-1 hover:bg-[#e2b454]"
           >
             Mulai Sewa Sekarang
