@@ -4,27 +4,43 @@ import Hero from "../components/hero_section";
 import WhyUs from "../components/why_us";
 import HowToRental from "../components/howToRental";
 import FooterSection from "../components/footer";
-import LoginModal from "../components/login";
+
+import AuthModal from "../components/AuthModal"; 
 
 const LandingPage = ({ setUser }) => {
-  const [loginOpen, setLoginOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState("login");
 
-  const handleLoginSuccess = (userData) => {
-    localStorage.setItem("goldventure_user", JSON.stringify(userData));
-    setUser(userData);
+  const handleAuthSuccess = (userData) => {
+    setUser(userData); 
+  };
+
+  const openLogin = () => {
+    setAuthMode("login");
+    setAuthOpen(true);
+  };
+
+  const openRegister = () => {
+    setAuthMode("register");
+    setAuthOpen(true);
   };
 
   return (
     <section className="overflow-hidden">
-      <Header onLoginOpen={() => setLoginOpen(true)} isLoggedIn={false} />
-      <LoginModal 
-        isOpen={loginOpen} 
-        onClose={() => setLoginOpen(false)} 
-        onLoginSuccess={handleLoginSuccess} 
+      <Header onLoginOpen={openLogin} onRegisterOpen={openRegister} isLoggedIn={false} />
+      
+      <AuthModal 
+        isOpen={authOpen} 
+        onClose={() => setAuthOpen(false)} 
+        initialMode={authMode}
+        onSuccess={handleAuthSuccess} 
       />
+      
       <Hero />
       <WhyUs />
-      <HowToRental onOpenLogin={() => setLoginOpen(true)} />
+      
+      <HowToRental onOpenLogin={openLogin} />
+      
       <FooterSection />
     </section>
   );
