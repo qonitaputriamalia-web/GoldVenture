@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Outlet, NavLink, useNavigate, useLocation } from "react-router-dom";
-import { 
-  Search, ShoppingCart, LogOut, MapPin, ChevronDown, 
-  Phone, Mail, Check, Menu, X 
+import {
+  Search, ShoppingCart, LogOut, MapPin, ChevronDown,
+  Phone, Mail, Check, Menu, X
 } from "lucide-react";
 import logo from "../assets/logo-GoldVenture.png";
 import AuthModal from "../components/AuthModal";
@@ -24,7 +24,7 @@ const MainLayout = ({ user, setUser, cartCount = 0, onCartClick }) => {
   const [isLocationOpen, setIsLocationOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("Bekasi, Indonesia");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   // State untuk efek scroll pada header
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -50,8 +50,7 @@ const MainLayout = ({ user, setUser, cartCount = 0, onCartClick }) => {
   };
 
   const navClass = ({ isActive }) =>
-    `group relative px-2 py-2 text-sm font-bold transition-all duration-300 ${
-      isActive ? "text-emerald-800" : "text-slate-500 hover:text-emerald-700"
+    `group relative px-2 py-2 text-sm font-bold transition-all duration-300 ${isActive ? "text-emerald-800" : "text-slate-500 hover:text-emerald-700"
     }`;
 
   const activePaths = ["/beranda", "/alat", "/paket"];
@@ -66,7 +65,7 @@ const MainLayout = ({ user, setUser, cartCount = 0, onCartClick }) => {
 
           {/* Dropdown Lokasi */}
           <div className="relative">
-            <div 
+            <div
               onClick={() => setIsLocationOpen(!isLocationOpen)}
               className={`group flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 transition-all duration-300 hover:bg-white/10 hover:text-white ${isLocationOpen ? "bg-white/10 text-white" : ""}`}
             >
@@ -117,17 +116,38 @@ const MainLayout = ({ user, setUser, cartCount = 0, onCartClick }) => {
       {/* --- Main Header Sticky --- */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-md border-transparent" : "bg-white border-b border-gray-100 shadow-none"}`}>
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-8">
-          
+
           {/* Logo & Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
-            <button 
+            <button
               className="lg:hidden p-2 -ml-2 text-slate-600 hover:text-emerald-800 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-            <div className="cursor-pointer transition-transform hover:scale-105 active:scale-95" onClick={() => navigate('/beranda')}>
-              <img src={logo} alt="GoldVenture Logo" className="w-28 sm:w-32 object-contain" />
+            <div
+              className="flex items-center cursor-pointer transition-transform hover:scale-105 active:scale-95"
+              onClick={() => navigate("/beranda")}
+            >
+              <img
+                src={logo}
+                alt="GoldVenture Logo"
+                className="w-28 sm:w-32 object-contain"
+              />
+
+              <div>
+                <p
+                  className="text-xl font-black text-amber-400"
+                >
+                  GoldVenture
+                </p>
+
+                <p
+                  className="-mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-600"
+                >
+                  Outdoor Rental
+                </p>
+              </div>
             </div>
           </div>
 
@@ -150,7 +170,7 @@ const MainLayout = ({ user, setUser, cartCount = 0, onCartClick }) => {
 
           {/* Action Bar */}
           <div className="flex items-center gap-2 sm:gap-4">
-            
+
             {/* Search & Cart (Animasi Halus) */}
             <div className={`flex items-center gap-1 transition-all duration-500 ease-out overflow-hidden ${isInteractivePage ? "w-20 sm:w-24 opacity-100 translate-x-0" : "w-0 opacity-0 translate-x-4 pointer-events-none"}`}>
               <button className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-500 transition-all duration-300 hover:bg-slate-100 hover:text-emerald-800 hover:scale-110 active:scale-95">
@@ -210,9 +230,9 @@ const MainLayout = ({ user, setUser, cartCount = 0, onCartClick }) => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl animate-in slide-in-from-top-2">
             <div className="flex flex-col px-4 py-4 space-y-2">
               {["Alat", "Paket", "Cara Sewa", "Trip Planner", "Tentang Kami"].map((item) => (
-                <NavLink 
-                  key={item} 
-                  to={`/${item.toLowerCase().replace(" ", "-")}`} 
+                <NavLink
+                  key={item}
+                  to={`/${item.toLowerCase().replace(" ", "-")}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) => `px-4 py-3 rounded-xl font-bold transition-colors ${isActive ? "bg-emerald-50 text-emerald-800" : "text-slate-600 hover:bg-slate-50"}`}
                 >
