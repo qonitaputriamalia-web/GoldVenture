@@ -20,15 +20,79 @@ const AuthModal = ({ isOpen, onClose, onSuccess, initialMode = "login" }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        
+
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         if (mode === "register") {
+            if (!form.name.trim() || !form.email.trim() || !form.password.trim()) {
+                setError("Semua field harus diisi!");
+                setIsLoading(false);
+                alert("Semua field harus diisi!");
+                return;
+            }
+            // ambil data user lama
+            const users = JSON.parse(localStorage.getItem("goldventure_users")) || [];
+
+            // cek email sudah ada atau belum
+            const emailExist = users.find(
+                (user) => user.email === form.email
+            );
+
+            if (emailExist) {
+                setError("Email sudah terdaftar!");
+                alert("Email sudah terdaftar!");
+                setIsLoading(false);
+                return;
+            }
+
+            // simpan user baru
+
+            users.push({
+                name: form.name,
+                email: form.email,
+                password: form.password,
+            });
+
+            localStorage.setItem(
+                "goldventure_users",
+                JSON.stringify(users)
+            );
+
+            alert("Registrasi berhasil!");
+
             setMode("login");
+            setForm({
+                name: "",
+                email: "",
+                password: "",
+            });
+
             setIsLoading(false);
-            
+            return;
         } else {
-            onSuccess?.({ name: form.name || "User", email: form.email });
+            const users =
+                JSON.parse(localStorage.getItem("goldventure_users")) || [];
+
+            const user = users.find(
+                (u) =>
+                    u.email === form.email &&
+                    u.password === form.password
+            );
+
+            if (!user) {
+                setError("Email atau password salah!");
+                setIsLoading(false);
+                alert("Email atau password salah!");
+                return;
+            }
+
+            localStorage.setItem(
+                "goldventure_user",
+                JSON.stringify(user)
+            );
+
+            onSuccess(user);
+
             setIsLoading(false);
             onClose();
         }
@@ -83,30 +147,30 @@ const AuthModal = ({ isOpen, onClose, onSuccess, initialMode = "login" }) => {
                             <h3 className="text-2xl font-bold">{mode === "login" ? "Selamat Datang" : "Buat Akun Baru"}</h3>
 
                             {mode === "register" && (
-                                <input 
-                                    type="text" 
-                                    placeholder="Nama Lengkap" 
+                                <input
+                                    type="text"
+                                    placeholder="Nama Lengkap"
                                     value={form.name}
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-amber-500 outline-none transition" 
-                                    onChange={(e) => setForm({ ...form, name: e.target.value })} 
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-amber-500 outline-none transition"
+                                    onChange={(e) => setForm({ ...form, name: e.target.value })}
                                 />
                             )}
 
-                            <input 
-                                type="email" 
-                                placeholder="Email" 
+                            <input
+                                type="email"
+                                placeholder="Email"
                                 value={form.email}
-                                className="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-amber-500 outline-none transition" 
-                                onChange={(e) => setForm({ ...form, email: e.target.value })} 
+                                className="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-amber-500 outline-none transition"
+                                onChange={(e) => setForm({ ...form, email: e.target.value })}
                             />
 
                             <div className="relative">
-                                <input 
-                                    type={showPassword ? "text" : "password"} 
-                                    placeholder="Password" 
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password"
                                     value={form.password}
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-4 pr-12 focus:border-amber-500 outline-none transition" 
-                                    onChange={(e) => setForm({ ...form, password: e.target.value })} 
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-4 pr-12 focus:border-amber-500 outline-none transition"
+                                    onChange={(e) => setForm({ ...form, password: e.target.value })}
                                 />
                                 <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-4 text-white/50">
                                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}

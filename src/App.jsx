@@ -62,7 +62,7 @@ function App() {
   useEffect(() => () => clearTimeout(toastTimer.current), []);
 
   // ==========================================
-  // LOGIKA LOGIN
+  // LOGIN
   // ==========================================
   useEffect(() => {
     const saved = localStorage.getItem("goldventure_user");

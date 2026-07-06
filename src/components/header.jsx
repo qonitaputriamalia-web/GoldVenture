@@ -25,40 +25,6 @@ const Header = ({ onLoginOpen, onRegisterOpen, onLogout, isLoggedIn = false }) =
                     </div>
                 </a>
 
-                {isLoggedIn && (
-                    <div className="hidden -translate-x-4 items-center gap-1 rounded-full border border-slate-200 bg-white/70 p-1 shadow-sm lg:flex">
-                        <a
-                            href="#alat"
-                            className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-forest"
-                        >
-                            Alat
-                        </a>
-                        <a
-                            href="#paket"
-                            className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-forest"
-                        >
-                            Paket
-                        </a>
-                        <a
-                            href="#cara-sewa"
-                            className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-forest"
-                        >
-                            Cara Sewa
-                        </a>
-                        <a
-                            href="#planner"
-                            className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-forest"
-                        >
-                            Trip Planner
-                        </a>
-                        <a
-                            href="#tentang"
-                            className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-forest"
-                        >
-                            Tentang Kami
-                        </a>
-                    </div>
-                )}
 
                 {/* Auth Button - Berubah Tergantung Status Login */}
                 <div className="hidden items-center gap-3 md:flex">
@@ -111,5 +77,8 @@ const Header = ({ onLoginOpen, onRegisterOpen, onLogout, isLoggedIn = false }) =
         </header>
     );
 };
+
+
+
 
 export default Header;
